@@ -14,6 +14,7 @@ class Periodical(LibraryItem):
 	def get_editor(self):
 		return self._editor
 
+	# get
 	def get_volume(self):
 		return self._volume
 
