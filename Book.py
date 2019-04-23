@@ -30,9 +30,9 @@ class Book(LibraryItem):
 		self._on_loan = on_loan
 
 	def __str__(self):
-		return f' ID:{self.get_item_id()},' \
+		return f'ID:{self.get_item_id()},' \
 			f' ISBN:{self.get_isbn()},' \
 			f' Title:{self.get_title()},' \
 			f' Author:{self.get_author()},' \
 			f' Year:{self.get_year()},' \
-			f' On Loan:{self.get_on_loan()}\n'
+			f' On Loan:{self.get_on_loan()}'
