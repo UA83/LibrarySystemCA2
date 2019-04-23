@@ -27,3 +27,22 @@ else:
 
 #search book
 #delete book
+
+
+# [1] Display Users
+# [2] Add User
+# [3] Delete USer
+# [4] Search User
+# [5] Add Book
+# [6] Borrow Book
+# [7] Delete Book
+# [8] Display Books
+# [9] Return Book
+# [10] Search Book
+# [11] Add Periodical
+# [12] Delete Periodical
+# [13] Display Periodicals
+# [14] Search Periodical
+
+
+

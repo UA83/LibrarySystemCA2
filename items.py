@@ -15,5 +15,7 @@ list_of_book = [Book('1', 'A Game of Thrones', '1996', '9780553573404', 'George 
 #Periodicals have a ID, title, year, an editor, volume, issue.
 #Periodicals can’t be loaned.
 list_of_periodical = [Periodical('35', 'How does it work?', '1983', 'Ulisses Mirage', '3', '123'),
+                      Periodical('43', 'IronMan, Nano Technology', '2017', 'Stan Lee', '1', '32'),
+                      Periodical('32', 'The power of food', '2018', 'John Dee', '1', '21'),
                       Periodical('88', 'Adventures of a dog called Suki', '2019', 'Stephanie Enders', '7', '456')]
 

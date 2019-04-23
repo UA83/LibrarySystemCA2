@@ -6,7 +6,7 @@ def numDigits(n):
 
 # Print the title of the pager where the user is navigating.
 def get_page_title(page_title):
-    print(page_title + '\n' + len(page_title) * '=')
+    print(' ' + page_title + '\n ' + len(page_title) * '=')
 
 # Get the latest ID use
 def get_latest_id():
@@ -23,15 +23,17 @@ def get_latest_id():
     # Return the last value of the list.
     return l[-1]
 
-# Check if the ISBN is in use
-def get_isbn():
-    for b, in list_of_book:
-        l = []
+# Return a list with all ISBN in the Library
+def get_isbns():
+    l = []
+    for b in list_of_book:
         l.append(b.get_isbn())
 
     return l
 
-def check_isbn(list_isbn, check_isbn):
+# Check if ISBN is already in use, returns True/False
+def check_isbn(list_isbn,  check_isbn):
     if check_isbn in list_isbn:
-        return False
-    return True
+        return True
+    return False
+
