@@ -35,4 +35,4 @@ class Book(LibraryItem):
 			f' Title:{self.get_title()},' \
 			f' Author:{self.get_author()},' \
 			f' Year:{self.get_year()},' \
-			f' On Loan:{self.get_on_loan()}\n'
+			f' On Loan:{self.get_on_loan()}'
