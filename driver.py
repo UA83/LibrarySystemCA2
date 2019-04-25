@@ -58,6 +58,8 @@ def delete_user():
                ' Enter User ID to be deleted:')
 
     while not id.isdigit():
+        if id.lower() == 'x':
+            break
         id = input(
             ' === TIP --> if you do not know the user ID, press x to exit and chose option 4 from the menu to search the User ID. ===\n'
             ' Enter User ID to be deleted:')
@@ -100,7 +102,7 @@ def search_user():
     place_holder = 'Users were'
     if total < 2:
         place_holder = 'User was'
-    print(f'The total of: {total} {place_holder} found')
+    print(f' The total of: {total} {place_holder} found')
 
 
 # [5] Add Book
