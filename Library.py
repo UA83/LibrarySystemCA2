@@ -87,15 +87,24 @@ def borrow_book():
     get_user_index = '-1'
     for u in list_users:
         if u.get_id() == su:
-            print(u)
             get_user_index = list_users.index(u)
             print(f'INDEX[{get_user_index}]')
 
     if get_user_index == '-1':
         print('User not not found')
 
-    #print(f'user index{u},\n'
-    #      f'Book index {b}')
+    print(f'user{list_users[get_user_index]},\n'
+          f'Book{list_of_book[get_book_index]}')
+
+    list_users[get_user_index].borrow_book(list_of_book[get_book_index])
+    list_of_book[get_book_index].set_on_loan(True)
+    print('=========')
+    for u in list_users:
+        print(u.get_id())
+
+    print('=========')
+    for b in list_of_book:
+        print(b)
 
 
 
