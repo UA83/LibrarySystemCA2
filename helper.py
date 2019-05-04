@@ -10,34 +10,36 @@ def get_page_title(page_title):
     print(' ' + page_title + '\n ' + len(page_title) * '=')
 
 
-# Get the latest ID use
+# Get the latest ID used
 def get_latest_id(choice=None):
-    l = []
+    list_of_ids = []
     if choice == 'for_user':
         for u in list_users:
-            l.append(u.get_id())
+            list_of_ids.append(u.get_id())
 
     else:
+        # Getting all books ID
         for b in list_of_book:
-            l.append(b.get_item_id())
+            list_of_ids.append(b.get_item_id())
 
+        # Getting all Periodicals ID
         for p in list_of_periodical:
-            l.append(p.get_item_id())
+            list_of_ids.append(p.get_item_id())
 
     # sort list, as the values are string, I am using (key=int) to sort it as integers.
-    l.sort(key=int)
+    list_of_ids.sort(key=int)
 
-    # Return the last value of the list.
-    return l[-1]
+    # Return the last value of the list, which is the highest number.
+    return list_of_ids[-1]
 
 
 # Return a list with all ISBN in the Library
 def get_isbns():
-    l = []
+    list_isbn = []
     for b in list_of_book:
-        l.append(b.get_isbn())
+        list_isbn.append(b.get_isbn())
 
-    return l
+    return list_isbn
 
 
 # Check if ISBN is already in use, returns True/False

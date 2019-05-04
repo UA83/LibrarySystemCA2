@@ -8,31 +8,7 @@ USER_ADDED = ' User Added Successfully'
 USER_DELETED = ' User Deleted Successfully'
 USER_NOT_FOUND = ' User Not Found'
 
-
 def display_menu():
-    # print(' Library System')
-    # print(' ---------------------------------')
-    # print(' ----- Users                     |')
-    # print(' | 1.  Add User #                |')
-    # print(' | 2.  Delete User               |')
-    # print(' | 3.  Display Users #           |')
-    # print(' | 4.  Search User #             |')
-    # print(' ----- Books                     |')
-    # print(' | 5.  Add Book #                |')
-    # print(' | 6.  Borrow Book               |')
-    # print(' | 7.  Delete Book               |')
-    # print(' | 8.  Display Books #           |')
-    # print(' | 9.  Return Book               |')
-    # print(' | 10. Search Book #             |')
-    # print(' ----- Periodicals               |')
-    # print(' | 11. Add Periodical            |')
-    # print(' | 12. Delete Periodical         |')
-    # print(' | 13. Display Periodicals       |')
-    # print(' | 14. Search Periodical         |')
-    # print(' -------                         |')
-    # print(' | X.  Exit                      |')
-    # print(' ---------------------------------\n')
-
 
     print(' -------------------------------------------------------------------------------------------------')
     print(' |                                         Library System                                        |')
@@ -118,19 +94,27 @@ def search_book():
     to_search = input(' === TIP --> You can search by ID, Title, Publish Year, ISBN or Author ==='
                       '\n Please Enter the item to be search:')
 
-    found = Book.find_item(list_of_book, str(to_search))
-    if not found:
+    list_of_books_found = []
+    for b in list_of_book:
+        if to_search.lower() in str(b.get_isbn()).lower() \
+                or to_search.lower() in str(b.get_item_id()).lower() \
+                or to_search.lower() in str(b.get_title()).lower() \
+                or to_search.lower() in str(b.get_author()).lower() \
+                or to_search.lower() in str(b.get_year()).lower():
+            list_of_books_found.append(str(b))
+
+    if not list_of_books_found:
         print(BOOK_NOT_FOUND)
     else:
-        for b in found:
+        for b in list_of_books_found:
             print(b)
 
-    total = len(found)
+    total = len(list_of_books_found)
 
-    place_holder = 'Books were'
-    if total < 2:
-        place_holder = 'Books was'
-    print(f'The total of: {total} {place_holder} found')
+    place_holder = 'Book'
+    if total != 1:
+        place_holder = 'Books'
+    print(f' The total of: {total} {place_holder} found with the keyword [{to_search.upper()}]')
 
 
 # [7] Add User
@@ -193,18 +177,26 @@ def search_user():
 
     to_search = input(' === TIP --> You can search User by ID, Name or Address. ==='
                       '\n Please Enter a user data to be search:')
-    found = User.find_user(list_users, str(to_search))
-    if not found:
+
+    list_of_users_found = []
+    for u in list_users:
+        if to_search.lower() in str(u.get_name()).lower() \
+                or to_search.lower() in str(u.get_id()).lower() \
+                or to_search.lower() in str(u.get_address()).lower():
+                    list_of_users_found.append(str(u))
+
+    if not list_of_users_found:
         print(USER_NOT_FOUND)
     else:
-        for u in found:
+        for u in list_of_users_found:
             print(u)
-    total = len(found)
+    total = len(list_of_users_found)
 
-    place_holder = 'Users were'
-    if total < 2:
-        place_holder = 'User was'
-    print(f' The total of: {total} {place_holder} found')
+    place_holder = 'user'
+    if total != 1:
+        place_holder = 'users'
+
+    print(f' The total of: {total} {place_holder} found with the keyword [{to_search.upper()}]')
 
 
 # [11] Add Periodical

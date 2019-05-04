@@ -31,12 +31,6 @@ class User():
 		self._books_on_loan = book
 		book._onloan = True
 
-	def find_user(list_users, to_search):
-		list_of_users_found = []
-		for u in list_users:
-			if to_search.lower() in str(u.get_name()).lower() or to_search.lower() in str(u.get_id()).lower() or to_search.lower() in str(u.get_address()).lower():
-				list_of_users_found.append(str(u))
-		return list_of_users_found
 
 
 
