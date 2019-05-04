@@ -82,3 +82,25 @@ for m in movies:
 
 for u in users:
     print(u)
+
+
+
+###################
+ifornia Upper DB')
+    b1 = Book('111', 'Test title', '1996', '9784443573404', 'Test Authot')
+
+    list_of_book.append(b1)
+
+    for b in list_of_book:
+        print(b.get_title())
+
+    list_users.append(t1)
+    print('=====================')
+    for u in list_users:
+        print(u.get_name())
+
+    print('=====================')
+
+    list_users[5].borrow_book(list_of_book[5])
+    list_of_book[5].set_on_loan(True)
+    print(list_users[5]._books_on_loan)

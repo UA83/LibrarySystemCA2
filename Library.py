@@ -70,6 +70,37 @@ def add_book():
 def borrow_book():
     get_page_title('Borrow Book')
 
+    # do A while loop ????
+    sb = input('Enter a book ID to borrow:')
+    get_book_index = '-1'
+    for b in list_of_book:
+        if b.get_item_id() == sb:
+            get_book_index = list_of_book.index(b)
+            print(f'INDEX[{get_book_index}]')
+
+    if get_book_index == '-1':
+        print('Book not found')
+
+    #u = input('Enter user ID who wants to borrow a book:')
+    # do A while loop ????
+    su = input('Enter a user ID to borrow:')
+    get_user_index = '-1'
+    for u in list_users:
+        if u.get_id() == su:
+            print(u)
+            get_user_index = list_users.index(u)
+            print(f'INDEX[{get_user_index}]')
+
+    if get_user_index == '-1':
+        print('User not not found')
+
+    #print(f'user index{u},\n'
+    #      f'Book index {b}')
+
+
+
+
+
 
 # [3] Delete Book
 def delete_book():
