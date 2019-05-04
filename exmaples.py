@@ -13,13 +13,13 @@ class Movie():
 class User():
     def __init__(self, name):
         self._name = name
-        self._movie = None
+        self._movie = []
 
     def get_name(self):
         return self._name
 
     def loan_movie(self, m):
-        self._movie = m
+        self._movie.append(m)
         m._onloan = True
 
     def __str__(self):
@@ -77,30 +77,15 @@ m = find_movie(movies, movie_name)
 
 p.loan_movie(m)
 
+person_name = input('Enter person\'s name :')
+movie_name = input('Enter movie\'s name :')
+p = find_user(users, person_name)
+m = find_movie(movies, movie_name)
+
+p.loan_movie(m)
+
 for m in movies:
     print(m)
 
 for u in users:
     print(u)
-
-
-
-###################
-ifornia Upper DB')
-    b1 = Book('111', 'Test title', '1996', '9784443573404', 'Test Authot')
-
-    list_of_book.append(b1)
-
-    for b in list_of_book:
-        print(b.get_title())
-
-    list_users.append(t1)
-    print('=====================')
-    for u in list_users:
-        print(u.get_name())
-
-    print('=====================')
-
-    list_users[5].borrow_book(list_of_book[5])
-    list_of_book[5].set_on_loan(True)
-    print(list_users[5]._books_on_loan)

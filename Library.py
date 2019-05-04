@@ -70,42 +70,25 @@ def add_book():
 def borrow_book():
     get_page_title('Borrow Book')
 
-    # do A while loop ????
-    sb = input('Enter a book ID to borrow:')
-    get_book_index = '-1'
-    for b in list_of_book:
-        if b.get_item_id() == sb:
-            get_book_index = list_of_book.index(b)
-            print(f'INDEX[{get_book_index}]')
+    # Find if book is available
+    b_index = check_book_available()
+    while b_index[0] == 'No':
+        print(b_index[1])
+        b_index = check_book_available()
 
-    if get_book_index == '-1':
-        print('Book not found')
+    print(b_index[1])
 
-    #u = input('Enter user ID who wants to borrow a book:')
-    # do A while loop ????
-    su = input('Enter a user ID to borrow:')
-    get_user_index = '-1'
-    for u in list_users:
-        if u.get_id() == su:
-            get_user_index = list_users.index(u)
-            print(f'INDEX[{get_user_index}]')
 
-    if get_user_index == '-1':
-        print('User not not found')
+    # Get the user
+    u_index =  get_user()
 
-    print(f'user{list_users[get_user_index]},\n'
-          f'Book{list_of_book[get_book_index]}')
-
-    list_users[get_user_index].borrow_book(list_of_book[get_book_index])
-    list_of_book[get_book_index].set_on_loan(True)
+    # Borrow book
+    list_users[u_index].borrow_book(list_of_book[b_index[2]])
+    # Update book stock
+    list_of_book[b_index[2]].set_on_loan(list_users[u_index].get_name())
     print('=========')
-    for u in list_users:
-        print(u.get_id())
 
-    print('=========')
-    for b in list_of_book:
-        print(b)
-
+    print(f'The book: {list_of_book[b_index[2]].get_title()} has been borrowed by {list_users[u_index].get_name()}')
 
 
 
@@ -208,7 +191,7 @@ def delete_user():
 def display_users():
     get_page_title('List of Users')
     for u in list_users:
-        print(u)
+        print(f'{u}\n')
 
 
 # [10] Search User
