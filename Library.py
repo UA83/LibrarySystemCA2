@@ -98,6 +98,14 @@ def borrow_book():
 def delete_book():
     get_page_title('Delete Book')
 
+    x = check_book_available()
+    print(x)
+
+    book_id = input('Enter Book ID')
+    y = get_book_index(book_id)
+
+    print(y)
+
 
 # [4] Display Books
 def display_books():

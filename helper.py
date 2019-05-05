@@ -1,10 +1,5 @@
 from items import *
 
-def numDigits(n):
-    n_str = str(n)
-    return len(n_str)
-
-
 # Print the title of the pager where the user is navigating.
 def get_page_title(page_title):
     print(' ' + page_title + '\n ' + len(page_title) * '=')
@@ -42,17 +37,17 @@ def get_isbns():
     return list_isbn
 
 
-# Check if ISBN is already in use, returns True/False
+# Check if ISBN is already in use for another book, returns True/False
 def check_isbn(list_isbn,  check_isbn):
     if check_isbn in list_isbn:
         return True
     return False
 
 def check_book_available():
-    sb = input(f' Ckeck if the book is available to borrow:')
+    search_book = input(f' Ckeck if the book is available to borrow:')
     rc = ['No', ' Book not in the system', -1]
     for b in list_of_book:
-        if b.get_item_id() == sb :
+        if b.get_item_id() == search_book :
 
             if b.get_on_loan() != 'No':
                 rc = ['No', ' Book Already Borrowed\n Try again', -1]
@@ -64,10 +59,10 @@ def check_book_available():
 def get_user():
     #u = input('Enter user ID who wants to borrow a book:')
     # do A while loop ????
-    su = input('Enter a user ID to borrow:')
+    search_user = input('Enter a user ID to borrow:')
     get_user_index = ''
     for u in list_users:
-        if u.get_id() == su:
+        if u.get_id() == search_user:
             get_user_index = list_users.index(u)
 
     return get_user_index
@@ -75,3 +70,12 @@ def get_user():
 
 def add_comma(list):
     print(list)
+
+
+def get_book_index(book_id):
+    get_index = -1
+    for b in list_of_book:
+        if b.get_item_id() == book_id:
+            get_index = list_of_book.index(b)
+
+    return get_index
